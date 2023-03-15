@@ -8,52 +8,59 @@
       />
       <span class="text-[30px]">ThreeJs</span>
     </div>
+
     <a-menu
       v-model:openKeys="state.openKeys"
       v-model:selectedKeys="state.selectedKeys"
       mode="inline"
       theme="dark"
       :inline-collapsed="state.collapsed"
+      @click="handleClick"
     >
-      <a-sub-menu v-for="item in menu" :key="item.key">
-        <template #icon>
-          <component :is="item.icon" />
+      <template v-for="item in menu" :key="item.key">
+        <template v-if="!item.children">
+          <a-menu-item :key="item.key">
+            <template #icon>
+              <PieChartOutlined />
+            </template>
+            {{ item.title }}
+          </a-menu-item>
         </template>
-        <!-- <template #title>{{ item.title }}</template> -->
-        
-        <!-- <a-menu-item v-for="it in item.children" :key="it.key">{{
-          it.title
-        }}</a-menu-item>
-
-        {{ it }} -->
-
-        <!-- <template v-if="it.children && "></template>
-        <a-sub-menu v-for="k in it.children" :key="k.key" :title="k.title">
-          <a-menu-item key="11">Option 11</a-menu-item>
-          <a-menu-item key="12">Option 12</a-menu-item>
-        </a-sub-menu> -->
-      </a-sub-menu>
+        <template v-else>
+          <menu-item :key="item.key" :menu-info="item" />
+        </template>
+      </template>
     </a-menu>
   </div>
 </template>
 <script lang="ts" setup>
-import { reactive, watch } from "vue";
+import { reactive } from "vue";
+import { useRouter } from "vue-router";
+import { PieChartOutlined } from "@ant-design/icons-vue";
 import { menu } from "./menu";
+import MenuItem from "./components/MenuItem.vue";
 
+const router = useRouter();
 const state = reactive({
   collapsed: false,
-  selectedKeys: ["1"],
-  openKeys: ["sub1"],
-  preOpenKeys: ["sub1"],
+  selectedKeys: [],
+  openKeys: [],
+  preOpenKeys: [],
 });
-watch(
-  () => state.openKeys,
-  (_val, oldVal) => {
-    state.preOpenKeys = oldVal;
+
+const handleClick = ({ key }) => {
+  let path = undefined;
+  function getCurrentMenu(m) {
+    for (let i = 0; i < m.length; i++) {
+      if (m[i].key === key) {
+        path = m[i]?.path;
+      } else if (m[i].children) {
+        getCurrentMenu(m[i].children);
+      }
+    }
   }
-);
-const toggleCollapsed = () => {
-  state.collapsed = !state.collapsed;
-  state.openKeys = state.collapsed ? [] : state.preOpenKeys;
+  getCurrentMenu(menu);
+
+  path && router.replace(path);
 };
 </script>

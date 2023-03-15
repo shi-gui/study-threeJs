@@ -1,17 +1,19 @@
 import { createRouter, createWebHashHistory } from "vue-router";
+import { h, resolveComponent } from "vue";
 
 const routes = [
+  { path: "/", name: "Home", render: () => h(resolveComponent("router-view")) },
   {
-    path: "/index1",
-    name: "index1",
-    meta: { title: "车场排名", tag: true },
-    component: () => import("@/pages/index1.vue"),
-  },
-  {
-    path: "/index2",
-    name: "index2",
-    meta: { title: "车场排名", tag: true },
-    component: () => import("@/pages/index2.vue"),
+    path: "/laochen/",
+    name: "LaoChen",
+    render: () => h(resolveComponent("router-view")),
+    children: [
+      {
+        path: "base/demo1",
+        name: "BaseDemo1",
+        component: () => import("@/pages/laochen/base/demo1.vue"),
+      },
+    ],
   },
 ];
 
