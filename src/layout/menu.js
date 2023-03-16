@@ -25,6 +25,11 @@ export const menu = [
             key: "1-1-3",
             path: "/laochen/base/demo3",
           },
+          {
+            title: "设置物体移动",
+            key: "1-1-4",
+            path: "/laochen/base/demo4",
+          },
         ],
       },
     ],
