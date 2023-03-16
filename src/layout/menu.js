@@ -7,7 +7,7 @@ export const menu = [
     icon: BoldOutlined,
     children: [
       {
-        title: "基础知识",
+        title: "入门与调试",
         key: "1-1",
         children: [
           {
@@ -34,6 +34,11 @@ export const menu = [
             title: "物体的缩放与旋转",
             key: "1-1-5",
             path: "/laochen/base/demo5",
+          },
+          {
+            title: "通过Clock跟踪时间处理动画",
+            key: "1-1-6",
+            path: "/laochen/base/demo6",
           },
         ],
       },
