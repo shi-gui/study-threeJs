@@ -20,6 +20,11 @@ export const menu = [
             key: "1-1-2",
             path: "/laochen/base/demo2",
           },
+          {
+            title: "添加坐标轴辅助器",
+            key: "1-1-3",
+            path: "/laochen/base/demo3",
+          },
         ],
       },
     ],

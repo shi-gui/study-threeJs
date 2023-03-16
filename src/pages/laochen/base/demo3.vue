@@ -1,4 +1,4 @@
-<!-- 轨道控制器查看物体 -->
+<!-- 添加坐标轴辅助器 -->
 <template>
   <div ref="box" />
 </template>
@@ -30,12 +30,16 @@ const init = () => {
   const cub = new THREE.Mesh(cubeGeometry, cubeMaterial);
   scene.add(cub);
 
-  // 4、初始化渲染器
+  // 4、添加坐标轴辅助器
+  const axesHelper = new THREE.AxesHelper( 5 );
+  scene.add(axesHelper)
+
+  // 5、初始化渲染器
   const renderer = new THREE.WebGLRenderer();
   renderer.setSize(window.innerWidth - 256, window.innerHeight);
   box.value.appendChild(renderer.domElement);
 
-  // 5、使用轨道控制器
+  // 6、使用轨道控制器
   const controls = new OrbitControls(camera, renderer.domElement);
 
   const animate = () => {
