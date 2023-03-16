@@ -15,6 +15,11 @@ export const menu = [
             key: "1-1-1",
             path: "/laochen/base/demo1",
           },
+          {
+            title: "轨道控制器查看物体",
+            key: "1-1-2",
+            path: "/laochen/base/demo2",
+          },
         ],
       },
     ],
