@@ -28,6 +28,11 @@ const routes = [
         name: "BaseDemo4",
         component: () => import("@/pages/laochen/base/demo4.vue"),
       },
+      {
+        path: "base/demo5",
+        name: "BaseDemo5",
+        component: () => import("@/pages/laochen/base/demo5.vue"),
+      },
     ],
   },
 ];

@@ -30,6 +30,11 @@ export const menu = [
             key: "1-1-4",
             path: "/laochen/base/demo4",
           },
+          {
+            title: "物体的缩放与旋转",
+            key: "1-1-5",
+            path: "/laochen/base/demo5",
+          },
         ],
       },
     ],
