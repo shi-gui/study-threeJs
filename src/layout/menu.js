@@ -40,6 +40,11 @@ export const menu = [
             key: "1-1-6",
             path: "/laochen/base/demo6",
           },
+          {
+            title: "Gsap动画库基本使用与原理",
+            key: "1-1-7",
+            path: "/laochen/base/demo7",
+          },
         ],
       },
     ],
