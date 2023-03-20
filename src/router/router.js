@@ -2,7 +2,7 @@ import { createRouter, createWebHashHistory } from "vue-router";
 import { h, resolveComponent } from "vue";
 
 const routes = [
-  { path: "/", name: "Home", redirect: '/laochen/base/demo1' },
+  { path: "/", name: "Home", redirect: "/laochen/base/demo1" },
   {
     path: "/laochen/",
     name: "LaoChen",

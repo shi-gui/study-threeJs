@@ -1,4 +1,4 @@
-<!-- Gsap动画库基本使用与原理 -->
+<!-- Gsap控制动画属性与方法 -->
 <template>
   <div ref="box" />
 </template>
@@ -43,13 +43,35 @@ const init = () => {
   // 6、使用轨道控制器
   const controls = new OrbitControls(camera, renderer.domElement);
 
-  // 设置时钟
-  const clock = new THREE.Clock();
-  const animate = () => {
-    // https://greensock.com/docs/v3/Eases
-    gsap.to(cub.position, { x: 5, duration: 5 });
-    gsap.to(cub.rotation, { x: Math.PI, duration: 5 });
+  // 添加动画
+  var ctx = gsap.to(cub.position, {
+    x: 5,
+    duration: 5,
+    ease: "power1.inOut",
+    //   设置重复的次数，无限次循环-1
+    repeat: -1,
+    // 往返运动
+    yoyo: true,
+    delay: 2,
+    onComplete: () => {
+      console.log("动画完成");
+    },
+    onStart: () => {
+      console.log("动画开始");
+    },
+  });
+  gsap.to(cub.rotation, {
+    x: 2 * Math.PI,
+    duration: 5,
+    ease: "power1.inOut",
+    repeat: -1,
+  });
 
+  window.addEventListener("dblclick", () => {
+    ctx.isActive() ? ctx.pause() : ctx.resume();
+  });
+
+  const animate = () => {
     requestAnimationFrame(animate);
     controls.update();
     renderer.render(scene, camera);

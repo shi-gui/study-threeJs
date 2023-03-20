@@ -41,7 +41,7 @@ export const menu = [
             path: "/laochen/base/demo6",
           },
           {
-            title: "Gsap动画库基本使用与原理",
+            title: "Gsap控制动画属性与方法",
             key: "1-1-7",
             path: "/laochen/base/demo7",
           },
