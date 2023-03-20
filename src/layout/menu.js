@@ -55,6 +55,11 @@ export const menu = [
             key: "1-1-9",
             path: "/laochen/base/demo9",
           },
+          {
+            title: "应用图形用户界面",
+            key: "1-1-10",
+            path: "/laochen/base/demo10",
+          },
         ],
       },
     ],
