@@ -48,6 +48,11 @@ const routes = [
         name: "BaseDemo8",
         component: () => import("@/pages/laochen/base/demo8.vue"),
       },
+      {
+        path: "base/demo9",
+        name: "BaseDemo9",
+        component: () => import("@/pages/laochen/base/demo9.vue"),
+      },
     ],
   },
 ];

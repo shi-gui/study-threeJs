@@ -50,6 +50,11 @@ export const menu = [
             key: "1-1-8",
             path: "/laochen/base/demo8",
           },
+          {
+            title: "使用js实现全屏",
+            key: "1-1-9",
+            path: "/laochen/base/demo9",
+          },
         ],
       },
     ],
