@@ -45,6 +45,11 @@ export const menu = [
             key: "1-1-7",
             path: "/laochen/base/demo7",
           },
+          {
+            title: "根据尺寸变化自适应画面",
+            key: "1-1-8",
+            path: "/laochen/base/demo8",
+          },
         ],
       },
     ],
