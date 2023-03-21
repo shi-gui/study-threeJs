@@ -71,6 +71,11 @@ export const menu = [
             key: "1-2-1",
             path: "/laochen/advace/demo1",
           },
+          {
+            title: "炫酷三角形",
+            key: "1-2-2",
+            path: "/laochen/advace/demo2",
+          },
         ],
       },
     ],
