@@ -11,7 +11,7 @@ export const menu = [
         key: "1-1",
         children: [
           {
-            title: "使用threejs渲染第一个场景和物体",
+            title: "渲染第一个场景和物体",
             key: "1-1-1",
             path: "/laochen/base/demo1",
           },
@@ -36,7 +36,7 @@ export const menu = [
             path: "/laochen/base/demo5",
           },
           {
-            title: "通过Clock跟踪时间处理动画",
+            title: "Clock跟踪时间处理动画",
             key: "1-1-6",
             path: "/laochen/base/demo6",
           },
@@ -59,6 +59,17 @@ export const menu = [
             title: "应用图形用户界面",
             key: "1-1-10",
             path: "/laochen/base/demo10",
+          },
+        ],
+      },
+      {
+        title: "全面认识物体",
+        key: "1-2",
+        children: [
+          {
+            title: "几何体属性相关",
+            key: "1-2-1",
+            path: "/laochen/advace/demo1",
           },
         ],
       },

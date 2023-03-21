@@ -8,6 +8,7 @@ const routes = [
     name: "LaoChen",
     render: () => h(resolveComponent("router-view")),
     children: [
+      // base
       {
         path: "base/demo1",
         name: "BaseDemo1",
@@ -57,6 +58,12 @@ const routes = [
         path: "base/demo10",
         name: "BaseDemo10",
         component: () => import("@/pages/laochen/base/demo10.vue"),
+      },
+      // advace
+      {
+        path: "advace/demo1",
+        name: "AdvaceDemo1",
+        component: () => import("@/pages/laochen/advace/demo1.vue"),
       },
     ],
   },

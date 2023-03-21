@@ -8,7 +8,6 @@ import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls";
 import gsap from "gsap";
 import * as dat from "dat.gui";
-import { color } from "dat.gui";
 
 const box = ref();
 const init = () => {
