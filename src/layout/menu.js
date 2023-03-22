@@ -76,6 +76,11 @@ export const menu = [
             key: "1-2-2",
             path: "/laochen/advace/demo2",
           },
+          {
+            title: "初识材质与纹理",
+            key: "1-2-3",
+            path: "/laochen/advace/demo3",
+          },
         ],
       },
     ],
