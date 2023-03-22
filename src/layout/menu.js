@@ -91,6 +91,11 @@ export const menu = [
             key: "1-2-5",
             path: "/laochen/advace/demo5",
           },
+          {
+            title: "标准网格材质",
+            key: "1-2-6",
+            path: "/laochen/advace/demo6",
+          },
         ],
       },
     ],
