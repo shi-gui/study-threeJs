@@ -80,6 +80,11 @@ const routes = [
         name: "AdvaceDemo4",
         component: () => import("@/pages/laochen/advace/demo4.vue"),
       },
+      {
+        path: "advace/demo5",
+        name: "AdvaceDemo5",
+        component: () => import("@/pages/laochen/advace/demo5.vue"),
+      },
     ],
   },
 ];

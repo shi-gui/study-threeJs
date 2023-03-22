@@ -86,6 +86,11 @@ export const menu = [
             key: "1-2-4",
             path: "/laochen/advace/demo4",
           },
+          {
+            title: "环境遮挡贴图",
+            key: "1-2-5",
+            path: "/laochen/advace/demo5",
+          },
         ],
       },
     ],
