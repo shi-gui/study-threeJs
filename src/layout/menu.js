@@ -81,6 +81,11 @@ export const menu = [
             key: "1-2-3",
             path: "/laochen/advace/demo3",
           },
+          {
+            title: "透明材质与透明纹理",
+            key: "1-2-4",
+            path: "/laochen/advace/demo4",
+          },
         ],
       },
     ],

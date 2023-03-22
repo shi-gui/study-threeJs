@@ -75,6 +75,11 @@ const routes = [
         name: "AdvaceDemo3",
         component: () => import("@/pages/laochen/advace/demo3.vue"),
       },
+      {
+        path: "advace/demo4",
+        name: "AdvaceDemo4",
+        component: () => import("@/pages/laochen/advace/demo4.vue"),
+      },
     ],
   },
 ];
