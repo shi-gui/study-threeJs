@@ -118,6 +118,17 @@ export const menu = [
           },
         ],
       },
+      {
+        title: "灯光详解",
+        key: "1-3",
+        children: [
+          {
+            title: "灯光与阴影的关系",
+            key: "1-3-1",
+            path: "/laochen/light/demo1",
+          },
+        ],
+      },
     ],
   },
 ];
