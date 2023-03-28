@@ -8,23 +8,15 @@ import { ref, onMounted } from "vue";
 import * as THREE from "three";
 // 导入轨道控制器
 import { OrbitControls } from "three/addons/controls/OrbitControls";
+import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader";
 
-import x1 from "./assets/environmentMaps/1/px.jpg";
-import x2 from "./assets/environmentMaps/1/nx.jpg";
-import y1 from "./assets/environmentMaps/1/py.jpg";
-import y2 from "./assets/environmentMaps/1/ny.jpg";
-import z1 from "./assets/environmentMaps/1/pz.jpg";
-import z2 from "./assets/environmentMaps/1/nz.jpg";
-// import hdr2 from "../../../assets/img/hdr/002.hdr";
-
-// import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader";
-// // 加载hdr环境图
-// const rgbeLoader = new RGBELoader();
-// rgbeLoader.loadAsync(hdr2).then((texture) => {
-//   texture.mapping = THREE.EquirectangularReflectionMapping;
-//   scene.background = texture;
-//   scene.environment = texture;
-// });
+import x1 from "@/assets/img/environmentMaps/1/px.jpg";
+import x2 from "@/assets/img/environmentMaps/1/nx.jpg";
+import y1 from "@/assets/img/environmentMaps/1/py.jpg";
+import y2 from "@/assets/img/environmentMaps/1/ny.jpg";
+import z1 from "@/assets/img/environmentMaps/1/pz.jpg";
+import z2 from "@/assets/img/environmentMaps/1/nz.jpg";
+import hdr4 from "@/assets/img/hdr/004.hdr";
 
 const box = ref();
 const init = () => {
@@ -42,22 +34,40 @@ const init = () => {
   camera.position.set(0, 0, 10);
   scene.add(camera);
 
-  // 设置cube纹理加载器
-  const cubeTextureLoader = new THREE.CubeTextureLoader();
-  const envMapTexture = cubeTextureLoader.load([x1, x2, y1, y2, z1, z2]);
+  //#region 通过设置cube纹理加载器，实现环境贴图
+  // const cubeTextureLoader = new THREE.CubeTextureLoader();
+  // const envMapTexture = cubeTextureLoader.load([x1, x2, y1, y2, z1, z2]);
+  // const sphereGeometry = new THREE.SphereBufferGeometry(1, 20, 20);
+  // const material = new THREE.MeshStandardMaterial({
+  //   metalness: 1,
+  //   roughness: 0.1,
+  //   envMap: envMapTexture,
+  // });
+  // const sphere = new THREE.Mesh(sphereGeometry, material);
+  // scene.add(sphere);
+
+  // // 给场景添加背景
+  // scene.background = envMapTexture;
+  // // 给场景所有的物体添加默认的环境贴图
+  // scene.environment = envMapTexture;
+  //#endregion
+
+  //#region 通过加载hdr环境图，实现环境贴图
   const sphereGeometry = new THREE.SphereBufferGeometry(1, 20, 20);
   const material = new THREE.MeshStandardMaterial({
     metalness: 1,
     roughness: 0.1,
-    envMap: envMapTexture,
   });
   const sphere = new THREE.Mesh(sphereGeometry, material);
   scene.add(sphere);
 
-  // 给场景添加背景
-  scene.background = envMapTexture;
-  // 给场景所有的物体添加默认的环境贴图
-  scene.environment = envMapTexture;
+  const rgbeLoader = new RGBELoader();
+  rgbeLoader.loadAsync(hdr4).then((texture) => {
+    texture.mapping = THREE.EquirectangularReflectionMapping;
+    scene.background = texture;
+    scene.environment = texture;
+  });
+  //#endregion
 
   // 添加光源
   const light = new THREE.AmbientLight(0xffffff, 0.5); // soft white light

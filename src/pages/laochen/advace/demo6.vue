@@ -7,10 +7,10 @@ import { ref, onMounted } from "vue";
 import * as THREE from "three";
 // 导入轨道控制器
 import { OrbitControls } from "three/addons/controls/OrbitControls";
-import img from "./assets/color.jpg";
-import img2 from "./assets/alpha.jpg";
-import img3 from "./assets/ambientOcclusion.jpg";
-import img4 from "./assets/height.jpg";
+import img from '@/assets/img/door/color.jpg'
+import img2 from "@/assets/img/door/alpha.jpg";
+import img3 from "@/assets/img/door/ambientOcclusion.jpg";
+import img4 from "@/assets/img/door/height.jpg";
 
 const box = ref();
 const init = () => {
