@@ -101,6 +101,11 @@ export const menu = [
             key: "1-2-7",
             path: "/laochen/advace/demo7",
           },
+          {
+            title: "金属和法线贴图",
+            key: "1-2-8",
+            path: "/laochen/advace/demo8",
+          },
         ],
       },
     ],
