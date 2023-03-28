@@ -106,6 +106,11 @@ export const menu = [
             key: "1-2-8",
             path: "/laochen/advace/demo8",
           },
+          {
+            title: "纹理加载进度情况",
+            key: "1-2-9",
+            path: "/laochen/advace/demo9",
+          },
         ],
       },
     ],
