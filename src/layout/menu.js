@@ -111,6 +111,11 @@ export const menu = [
             key: "1-2-9",
             path: "/laochen/advace/demo9",
           },
+          {
+            title: "环境贴图",
+            key: "1-2-10",
+            path: "/laochen/advace/demo10",
+          },
         ],
       },
     ],
