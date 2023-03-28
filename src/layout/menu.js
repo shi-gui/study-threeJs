@@ -96,6 +96,11 @@ export const menu = [
             key: "1-2-6",
             path: "/laochen/advace/demo6",
           },
+          {
+            title: "粗糙度贴图",
+            key: "1-2-7",
+            path: "/laochen/advace/demo7",
+          },
         ],
       },
     ],

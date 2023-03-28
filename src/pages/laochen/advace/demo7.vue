@@ -1,7 +1,8 @@
-<!-- 标准网格材质 MeshStandardMaterial -->
+<!-- 设置粗糙度与粗糙度贴图 -->
 <template>
   <div ref="box" />
 </template>
+
 <script setup>
 import { ref, onMounted } from "vue";
 import * as THREE from "three";
@@ -11,13 +12,14 @@ import img from "./assets/color.jpg";
 import img2 from "./assets/alpha.jpg";
 import img3 from "./assets/ambientOcclusion.jpg";
 import img4 from "./assets/height.jpg";
+import img5 from "./assets/roughness.jpg";
 
 const box = ref();
 const init = () => {
-  // 1、创建场景
+  // 创建场景
   const scene = new THREE.Scene();
 
-  // 2、创建相机
+  // 创建相机
   const camera = new THREE.PerspectiveCamera(
     75,
     window.innerWidth / window.innerHeight,
@@ -28,12 +30,14 @@ const init = () => {
   camera.position.set(0, 0, 10);
   scene.add(camera);
 
-  // 3、导入纹理
+  // 导入纹理
   const doorColorTexture = new THREE.TextureLoader().load(img);
   const doorColorTexture2 = new THREE.TextureLoader().load(img2);
   const doorColorTexture3 = new THREE.TextureLoader().load(img3);
   // 导入置换贴图
   const doorColorTexture4 = new THREE.TextureLoader().load(img4);
+  //导入粗糙度贴图
+  const doorColorTexture5 = new THREE.TextureLoader().load(img5);
 
   // 几何体
   const geometry = new THREE.BoxBufferGeometry(3, 3, 3, 200, 200, 200);
@@ -54,6 +58,10 @@ const init = () => {
     displacementMap: doorColorTexture4,
     // 影响程度，最大影响多少（门的厚度）
     displacementScale: 0.2,
+    // 粗糙度
+    roughness: 1,
+    // 粗糙度贴图
+    roughnessMap: doorColorTexture5,
   });
   const cub = new THREE.Mesh(geometry, basicMaterial);
   scene.add(cub);
@@ -62,52 +70,42 @@ const init = () => {
     "uv2",
     new THREE.BufferAttribute(geometry.attributes.uv.array, 2)
   );
-
-  // 环境光
-  const light = new THREE.AmbientLight(0xffffff, 0.5); // soft white light
-  scene.add(light);
-
-  // 直线光源
-  // const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
-  // directionalLight.position.set(10, 10, 10);
-  // scene.add(directionalLight);
-
   // 添加平面
   const planeGeometry = new THREE.PlaneBufferGeometry(1, 1, 200, 200);
   const plane = new THREE.Mesh(planeGeometry, basicMaterial);
   plane.position.set(3, 0, 0);
-
   scene.add(plane);
-  planeGeometry.setAttribute(
-    "uv2",
-    new THREE.BufferAttribute(planeGeometry.attributes.uv.array, 2)
-  );
 
-  // 4、初始化渲染器
+  // 添加光源
+  const light = new THREE.AmbientLight(0xffffff, 0.5);
+  scene.add(light);
+  // 直线光源
+  const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+  directionalLight.position.set(10, 0, 0);
+  scene.add(directionalLight);
+
+  // 初始化渲染器
   const renderer = new THREE.WebGLRenderer();
   renderer.setSize(window.innerWidth - 256, window.innerHeight);
   box.value.appendChild(renderer.domElement);
 
-  // 5、创建轨道控制器
+  // 创建轨道控制器
   const controls = new OrbitControls(camera, renderer.domElement);
-  // 设置控制器阻尼，让控制器更有真实效果,必须在动画循环里调用.update()。
   controls.enableDamping = true;
 
-  // 6、添加坐标轴辅助器
+  // 添加坐标轴辅助器
   const axesHelper = new THREE.AxesHelper(5);
   scene.add(axesHelper);
 
-  // 7、渲染
+  //渲染
   function render() {
     controls.update();
     renderer.render(scene, camera);
-    //   渲染下一帧的时候就会调用render函数
     requestAnimationFrame(render);
   }
   render();
 
-  // 8、监听resize，更新渲染画面
-  // 监听画面变化，更新渲染画面
+  // 监听resize，更新渲染画面
   window.addEventListener("resize", () => {
     // 更新摄像头
     camera.aspect = window.innerWidth / window.innerHeight;
