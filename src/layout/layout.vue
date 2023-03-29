@@ -1,5 +1,5 @@
 <template>
-  <div class="w-[256px] h-full bg-[#001529]">
+  <div class="w-[256px] h-full bg-[#001529] overflow-y-auto">
     <div class="text-white flex items-center justify-center px-5">
       <img
         src="https://threejs.org/files/favicon_white.ico"

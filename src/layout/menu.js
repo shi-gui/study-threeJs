@@ -137,6 +137,11 @@ export const menu = [
             key: "1-3-3",
             path: "/laochen/light/demo3",
           },
+          {
+            title: "点光源",
+            key: "1-3-4",
+            path: "/laochen/light/demo4",
+          },
         ],
       },
     ],
