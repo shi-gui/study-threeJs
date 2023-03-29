@@ -144,6 +144,22 @@ export const menu = [
           },
         ],
       },
+      {
+        title: "实战案例",
+        key: "1-4",
+        children: [
+          {
+            title: "全景看房",
+            key: "1-4-1",
+            path: "/laochen/example/vrToHouse",
+          },
+          {
+            title: "水天一色小岛",
+            key: "1-4-2",
+            path: "/laochen/example/islandScenery",
+          },
+        ],
+      },
     ],
   },
 ];

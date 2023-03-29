@@ -131,6 +131,19 @@ const routes = [
         name: "LightDemo4",
         component: () => import("@/pages/laochen/light/demo4.vue"),
       },
+      // example
+      {
+        path: "example/vrToHouse",
+        name: "VrToHouse",
+        component: () =>
+          import("@/pages/laochen/example/VrToHouse/VrToHouse.vue"),
+      },
+      {
+        path: "example/islandScenery",
+        name: "IslandScenery",
+        component: () =>
+          import("@/pages/laochen/example/IslandScenery/IslandScenery.vue"),
+      },
     ],
   },
 ];
