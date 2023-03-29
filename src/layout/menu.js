@@ -132,6 +132,11 @@ export const menu = [
             key: "1-3-2",
             path: "/laochen/light/demo2",
           },
+          {
+            title: "聚光灯阴影属性",
+            key: "1-3-3",
+            path: "/laochen/light/demo3",
+          },
         ],
       },
     ],

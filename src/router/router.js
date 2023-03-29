@@ -118,8 +118,13 @@ const routes = [
       },
       {
         path: "light/demo2",
-        name: "LightDemo3",
+        name: "LightDemo2",
         component: () => import("@/pages/laochen/light/demo2.vue"),
+      },
+      {
+        path: "light/demo3",
+        name: "LightDemo3",
+        component: () => import("@/pages/laochen/light/demo3.vue"),
       },
     ],
   },
