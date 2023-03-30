@@ -16,6 +16,7 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader";
 import isLand from "@/assets/img/IslandScenery/island2.glb";
+import hdr50 from "@/assets/img/IslandScenery/050.hdr";
 
 const box = ref();
 const init = () => {
@@ -90,6 +91,18 @@ const init = () => {
       skyMaterial.map.needsUpdate = true;
     }
   });
+  // 载入环境纹理
+  const hdrLoader = new RGBELoader();
+  hdrLoader.loadAsync(hdr50).then((res) => {
+    res.mapping = THREE.EquirectangularReflectionMapping;
+    scene.background = res;
+    scene.environment = res;
+  });
+
+  // 添加平行光，增加亮度
+  const light = new THREE.DirectionalLight(0xffffff, 1);
+  light.position.set(-100, 100, 10);
+  scene.add(light);
 
   // 创建水面
   const waterGeometry = new THREE.CircleBufferGeometry(300, 64);
@@ -114,8 +127,8 @@ const init = () => {
   // 实例化draco载入库
   const dracoLoader = new DRACOLoader();
   // 添加draco载入库
-  // TODO，暂未解决
-  dracoLoader.setDecoderPath("./public/draco/");
+  // ! 此处draco 应该从当前项目的node_modules/three/examples/js/libs/draco 重新复制一份到出来
+  dracoLoader.setDecoderPath("/draco/");
   // 添加draco载入库
   loader.setDRACOLoader(dracoLoader);
 
