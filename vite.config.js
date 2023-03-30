@@ -11,5 +11,5 @@ export default defineConfig({
     },
   },
   // 支持解析其他类型的文件
-  assetsInclude: ["**/*.hdr", "**/*.glb"],
+  assetsInclude: ["**/*.hdr", "**/*.glb", "**/*.gltf"],
 });

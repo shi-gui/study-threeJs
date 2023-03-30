@@ -158,6 +158,11 @@ export const menu = [
             key: "1-4-2",
             path: "/laochen/example/islandScenery",
           },
+          {
+            title: "水晶熊",
+            key: "1-4-3",
+            path: "/laochen/example/crystalBear",
+          },
         ],
       },
     ],
