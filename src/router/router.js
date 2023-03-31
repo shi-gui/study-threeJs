@@ -150,6 +150,12 @@ const routes = [
         component: () =>
           import("@/pages/laochen/example/CrystalBear/CrystalBear.vue"),
       },
+      {
+        path: "example/carShow",
+        name: "CarShow",
+        component: () =>
+          import("@/pages/laochen/example/CarShow/CarShow.vue"),
+      },
     ],
   },
 ];

@@ -163,6 +163,11 @@ export const menu = [
             key: "1-4-3",
             path: "/laochen/example/crystalBear",
           },
+          {
+            title: "汽车展示",
+            key: "1-4-4",
+            path: "/laochen/example/carShow",
+          },
         ],
       },
     ],
