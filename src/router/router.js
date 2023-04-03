@@ -156,6 +156,12 @@ const routes = [
         component: () =>
           import("@/pages/laochen/example/CarShow/CarShow.vue"),
       },
+      {
+        path: "example/card",
+        name: "Card",
+        component: () =>
+          import("@/pages/laochen/example/Card/Card.vue"),
+      },
     ],
   },
 ];

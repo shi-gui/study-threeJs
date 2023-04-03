@@ -168,6 +168,11 @@ export const menu = [
             key: "1-4-4",
             path: "/laochen/example/carShow",
           },
+          {
+            title: "圣诞3D贺卡",
+            key: "1-4-5",
+            path: "/laochen/example/card",
+          },
         ],
       },
     ],
